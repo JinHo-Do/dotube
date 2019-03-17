@@ -1,9 +1,14 @@
 import { Router } from 'express';
+import routes from './routes';
+import { home, search } from '../controllers/videoController';
+import { join, login, logout } from '../controllers/userController';
 
 const globalRouter = Router();
 
-globalRouter.get('/', (res, req) => {
-  req.send('this is Home page');
-});
+globalRouter.get(routes.home, home);
+globalRouter.get(routes.search, search);
+globalRouter.get(routes.join, join);
+globalRouter.get(routes.login, login);
+globalRouter.get(routes.logout, logout);
 
 export default globalRouter;
