@@ -1,6 +1,9 @@
+import { videos } from '../db';
+
 export const home = (req, res) => {
   res.render('main', {
     pageTitle: 'Home',
+    videos,
   });
 };
 
