@@ -1,27 +1,40 @@
 export const home = (req, res) => {
-  res.send('Home');
+  res.render('main', {
+    pageTitle: 'Home',
+  });
 };
 
 export const search = (req, res) => {
-  res.send('Search');
-};
+  const {
+    query: { search_query: searchingBy },
+  } = req;
 
-export const videos = (req, res) => {
-  res.send('videos');
+  res.render('search', {
+    pageTitle: 'Search',
+    searchingBy,
+  });
 };
 
 export const upload = (req, res) => {
-  res.send('upload');
+  res.render('upload', {
+    pageTitle: 'Upload',
+  });
 };
 
 export const videoDetail = (req, res) => {
-  res.send('videoDetail');
+  res.render('videoDetail', {
+    pageTitle: 'Video Detail',
+  });
 };
 
 export const editVideo = (req, res) => {
-  res.send('editVideo');
+  res.render('editVideo', {
+    pageTitle: 'Edit Video',
+  });
 };
 
 export const deleteVideo = (req, res) => {
-  res.send('deleteVideo');
+  res.render('deleteVideo', {
+    pageTitle: 'Delete Video',
+  });
 };
