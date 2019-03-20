@@ -7,7 +7,15 @@ header.header
       input(type="text", name="search_query", placeholder="검색")
   .header-column
     ul
-      li
-        a(href=routes.join) Join
-      li
-        a(href=routes.login) Log In
+      if !user.isAuthenticated
+        li
+          a(href=routes.join) Join
+        li
+          a(href=routes.login) Log In
+      else
+        li
+          a(href=`/videos${routes.upload}`) Upload
+        li
+          a(href=routes.userDetail(user.id)) Profile
+        li
+          a(href=routes.logout) Logout

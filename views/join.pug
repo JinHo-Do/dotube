@@ -3,9 +3,9 @@ extends layouts/main.pug
 block content
   .form-container
     form(action=routes.join, method="post")
-      input(type="text", name="name", placeholder="이름")
-      input(type="email", name="email", placeholder="이메일")
-      input(type="password", name="password", placeholder="비밀번호")
-      input(type="password", name="verify-password", placeholder="비밀번호 확인")
+      input(type="text", name="name", placeholder="이름", required=true)
+      input(type="email", name="email", placeholder="이메일", required=true)
+      input(type="password", name="password", placeholder="비밀번호", required=true)
+      input(type="password", name="verifyPassword", placeholder="비밀번호 확인", required=true)
       input(type="submit", value="가입")
     include partials/socialLogin

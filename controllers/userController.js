@@ -1,19 +1,43 @@
-export const join = (req, res) => {
+import routes from '../routes/routes';
+
+export const getJoin = (req, res) => {
   res.render('Join', {
     pageTitle: 'Join',
   });
 };
 
-export const login = (req, res) => {
+export const postJoin = (req, res) => {
+  const {
+    body: {
+      name, email, password, verifyPassword,
+    },
+  } = req;
+
+  if (password !== verifyPassword) {
+    res.status(400);
+    res.render('Join', {
+      pageTitle: 'Join',
+    });
+  } else {
+    // TODO: Register User
+    // TODO: User Log In
+    res.redirect(routes.home);
+  }
+};
+
+export const getLogin = (req, res) => {
   res.render('Login', {
     pageTitle: 'Log In',
   });
 };
 
+export const postLogin = (req, res) => {
+  res.redirect(routes.home);
+};
+
 export const logout = (req, res) => {
-  res.render('Logout', {
-    pageTitle: 'Log Out',
-  });
+  // TODO: User Log Out
+  res.redirect(routes.home);
 };
 
 export const userDetail = (req, res) => {
