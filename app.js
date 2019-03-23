@@ -1,6 +1,10 @@
 import express from 'express';
+import dotenv from 'dotenv';
 import middlewares from './middlewares';
 import routes from './routes';
+import './db';
+
+dotenv.config();
 
 const app = express();
 const PORT = process.env.PORT || 8080;
@@ -12,5 +16,5 @@ middlewares(app);
 routes(app);
 
 app.listen(PORT, () => {
-  console.log(`✅ Server running on ${PORT}port`);
+  console.log(`✅  Server running on ${PORT}port`);
 });
