@@ -25,7 +25,7 @@ const routes = {
   logout: LOGOUT,
   search: SEARCH,
   users: USERS,
-  userDetail: (id) => {
+  userDetail: id => {
     if (id) {
       return `/users/${id}`;
     }
@@ -35,19 +35,19 @@ const routes = {
   changePassword: CHANGE_PASSWORD,
   videos: VIDEOS,
   upload: UPLOAD,
-  videoDetail: (id) => {
+  videoDetail: id => {
     if (id) {
       return `/videos/${id}`;
     }
     return VIDEO_DETAIL;
   },
-  editVideo: (id) => {
+  editVideo: id => {
     if (id) {
       return `/videos/${id}/edit`;
     }
     return EDIT_VIDEO;
   },
-  deleteVideo: (id) => {
+  deleteVideo: id => {
     if (id) {
       return `/videos/${id}/delete`;
     }

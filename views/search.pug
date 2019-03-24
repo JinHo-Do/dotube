@@ -6,11 +6,14 @@ block content
     h3 #{searchingBy}의 결과
   .search-videos
     .videos
+      if videos.length === 0
+        h5 #{searchingBy}에 해당하는 영상이 없습니다.
       each video in videos
         +videoBlock({
           title: video.title,
           views: video.views,
           videoFile: video.videoFile,
-          description: video.description
+          description: video.description,
+          id: video.id
         })
 

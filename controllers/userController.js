@@ -8,9 +8,7 @@ export const getJoin = (req, res) => {
 
 export const postJoin = (req, res) => {
   const {
-    body: {
-      name, email, password, verifyPassword,
-    },
+    body: { name, email, password, verifyPassword },
   } = req;
 
   if (password !== verifyPassword) {

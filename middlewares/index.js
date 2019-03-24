@@ -6,9 +6,11 @@ import logger from 'morgan';
 import cookieParser from 'cookie-parser';
 import localsMiddleware from './locals';
 
-export const uploadVideo = multer({ dest: 'uploads/videos/' }).single('videoFile');
+export const uploadVideo = multer({ dest: 'uploads/videos/' }).single(
+  'videoFile',
+);
 
-export default (app) => {
+export default app => {
   app.set('view engine', 'pug');
 
   app.use(helmet());
