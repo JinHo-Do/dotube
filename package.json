@@ -4,7 +4,9 @@
   "description": "Cloning Youtube with Vanilla and NodeJS",
   "main": "app.js",
   "scripts": {
-    "start": "nodemon --inspect --exec babel-node app.js"
+    "start": "nodemon --inspect --exec babel-node app.js",
+    "dev": "webpack --mode development -w",
+    "build:": "webpack --mode production"
   },
   "author": "doveloper",
   "license": "ISC",
@@ -21,11 +23,21 @@
   "devDependencies": {
     "@babel/core": "^7.3.4",
     "@babel/node": "^7.2.2",
+    "@babel/polyfill": "^7.4.0",
     "@babel/preset-env": "^7.3.4",
+    "autoprefixer": "^9.5.0",
+    "babel-loader": "^8.0.5",
+    "css-loader": "^2.1.1",
     "eslint": "^5.15.2",
     "eslint-config-airbnb-base": "^13.1.0",
     "eslint-config-prettier": "^4.1.0",
     "eslint-plugin-import": "^2.16.0",
-    "nodemon": "^1.18.10"
+    "mini-css-extract-plugin": "^0.5.0",
+    "node-sass": "^4.11.0",
+    "nodemon": "^1.18.10",
+    "postcss-loader": "^3.0.0",
+    "sass-loader": "^7.1.0",
+    "webpack": "^4.29.6",
+    "webpack-cli": "^3.3.0"
   }
 }

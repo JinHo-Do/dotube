@@ -87,4 +87,7 @@ typings/
 # Local Test
 uploads
 
+# webpack build
+static
+
 # End of https://www.gitignore.io/api/node
