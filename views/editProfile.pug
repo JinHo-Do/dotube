@@ -3,8 +3,9 @@ extends layouts/main.pug
 block content
   .form-container
     form(action=routes.editProfile, method="post")
-      label(for="avatar") 아바타
-      input(type="file", id="avatar", name="avatar")
+      fileUpload
+        label(for="avatar") 아바타
+        input(type="file", id="avatar", name="avatar")
       input(type="text", name="name" placeholder="이름")
       input(type="email", name="email" placeholder="이메일")
       input(type="submit", value="수정")

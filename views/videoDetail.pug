@@ -1,16 +1,20 @@
-extends layouts/main.pug
+extends layouts/main
 
 block content
-  .video-player
-    video(src=`/${video.fileUrl}`, controls=true)
-  .video-info
-    a(href=routes.editVideo(video.id)) 수정
-    h5.video-title=video.title
-    span.video-views=video.views
-    p.video-description=video.description
-  .video-comments
-    if video.comments.length === 0
-      span.video-comment-number 첫 댓글을 달아주세요.
-    else 
-      span.video-comment-number #{video.comments.length}개의 댓글
-
+  .video-detail-container
+    .video-player
+      video(src=`/${video.fileUrl}`)
+    .video-info
+      a(href=routes.editVideo(video.id))
+        button 수정
+      h5.video-title=video.title
+      p.video-description=video.description
+      if video.views === 1
+        span.video-views 1 view
+      else 
+        span.video-views #{video.views} views
+    .video-comments
+      if video.comments.length === 0
+        span.video-comment-number 첫 댓글을 달아주세요.
+      else 
+        span.video-comment-number #{video.comments.length}개의 댓글

@@ -1,21 +1,22 @@
 header.header 
-  .header-column
-    a(href=routes.home)
-      i.fab.fa-youtube
-  .header-column
-    form(action=routes.search, method="get")
-      input(type="text", name="search", placeholder="검색")
-  .header-column
-    ul
-      if !user.isAuthenticated
-        li
-          a(href=routes.join) Join
-        li
-          a(href=routes.login) Log In
-      else
-        li
-          a(href=`/videos${routes.upload}`) Upload
-        li
-          a(href=routes.userDetail(user.id)) Profile
-        li
-          a(href=routes.logout) Logout
+  .header-wrapper
+    .header-column
+      a(href=routes.home)
+        i.fab.fa-youtube
+    .header-column
+      form(action=routes.search, method="get")
+        input(type="text", name="search", placeholder="검색")
+    .header-column
+      ul
+        if !user.isAuthenticated
+          li
+            a(href=routes.join) Join
+          li
+            a(href=routes.login) Log In
+        else
+          li
+            a(href=`/videos${routes.upload}`) Upload
+          li
+            a(href=routes.userDetail(user.id)) Profile
+          li
+            a(href=routes.logout) Logout

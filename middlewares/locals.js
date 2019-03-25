@@ -4,7 +4,7 @@ export default (req, res, next) => {
   res.locals.siteName = 'DoTube';
   res.locals.routes = routes;
   res.locals.user = {
-    isAuthenticated: true,
+    isAuthenticated: false,
     id: 1,
   };
   next();
