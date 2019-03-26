@@ -11,7 +11,5 @@ module.exports = {
   parserOptions: {
     ecmaVersion: 2018,
   },
-  rules: {
-    // 'import/prefer-default-export': 0,
-  },
+  rules: {},
 };

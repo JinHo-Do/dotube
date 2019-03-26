@@ -10,7 +10,7 @@ const app = express();
 const PORT = process.env.PORT || 8080;
 
 // Middlewares
-middlewares(app);
+middlewares(app, dotenv);
 
 // Routes
 routes(app);
