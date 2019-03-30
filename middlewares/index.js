@@ -6,6 +6,9 @@ import logger from 'morgan';
 import cookieParser from 'cookie-parser';
 import passport from 'passport';
 import session from 'express-session';
+import MongoStore from 'connect-mongo';
+import mongoose from 'mongoose';
+import routes from '../routes/routes';
 import localsMiddleware from './locals';
 import './passport';
 
@@ -13,8 +16,26 @@ export const uploadVideo = multer({ dest: 'uploads/videos/' }).single(
   'videoFile',
 );
 
+export const onlyPublic = (req, res, next) => {
+  if (req.user) {
+    res.redirect(routes.home);
+  } else {
+    next();
+  }
+};
+
+export const onlyPrivate = (req, res, next) => {
+  if (req.user) {
+    next();
+  } else {
+    res.redirect(routes.home);
+  }
+};
+
 export default (app, dotenv) => {
   dotenv.config();
+
+  const CookieStore = MongoStore(session);
 
   app.set('view engine', 'pug');
 
@@ -33,6 +54,9 @@ export default (app, dotenv) => {
       secret: process.env.COOKIE_SECRET,
       resave: false,
       saveUninitialized: false,
+      store: new CookieStore({
+        mongooseConnection: mongoose.connection,
+      }),
     }),
   );
 
