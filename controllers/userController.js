@@ -41,14 +41,28 @@ export const postLogin = passport.authenticate('local', {
   successRedirect: routes.home,
 });
 
+export const githubLogin = passport.authenticate('github');
+
+export const postGithubLogin = (req, res) => {
+  res.redirect(routes.home);
+};
+
 export const logout = (req, res) => {
-  // TODO: User Log Out
+  req.logout();
   res.redirect(routes.home);
 };
 
 export const userDetail = (req, res) => {
   res.render('userDetail', {
     pageTitle: 'User Detail',
+  });
+};
+
+export const getMe = (req, res) => {
+  console.log('req.user: ', req.user);
+  res.render('userDetail', {
+    pageTitle: 'User Detail',
+    user: req.user,
   });
 };
 
